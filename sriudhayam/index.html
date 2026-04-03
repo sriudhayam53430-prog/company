@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sri Udhayam Jobs - Trusted Job Consultancy in Tirupur. Find jobs across India. ₹25,000 Salary Jobs Available.">
+    <link rel="icon" type="img/png" href="./img/logoo.png">
+
+    <title>Sri Udhayam Jobs | Job Consultancy</title>
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Local Translations -->
+    <script src="js/translations.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configure Tailwind for custom branding -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        whatsapp: '#25D366'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'scroll': 'scroll 40s linear infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-header {
+                @apply bg-white/80 backdrop-blur-xl border-b border-white/40 shadow-sm;
+            }
+            .nav-link {
+                @apply font-medium text-gray-600 hover:text-primary-600 transition-colors uppercase tracking-wide text-sm relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary-500 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+            }
+            .btn-primary {
+                @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 via-purple-500 to-pink-500 bg-[length:200%_auto] text-white font-bold rounded-xl shadow-[0_4px_20px_rgba(124,58,237,0.4)] hover:shadow-[0_8px_30px_rgba(124,58,237,0.6)] hover:-translate-y-1 hover:bg-[position:right_center] transition-all duration-500;
+            }
+            .btn-secondary {
+                @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-600 border border-primary-100 font-semibold rounded-xl hover:bg-primary-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300;
+            }
+            .category-tab {
+                @apply px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap bg-white text-gray-600 border border-gray-200;
+            }
+            .category-tab:nth-child(1).active { @apply bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-[0_4px_15px_rgba(244,63,94,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(2).active { @apply bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-[0_4px_15px_rgba(59,130,246,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(3).active { @apply bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-[0_4px_15px_rgba(16,185,129,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(4).active { @apply bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_4px_15px_rgba(245,158,11,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(5).active { @apply bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white shadow-[0_4px_15px_rgba(168,85,247,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(6).active { @apply bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-[0_4px_15px_rgba(6,182,212,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(7).active { @apply bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-[0_4px_15px_rgba(236,72,153,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(8).active { @apply bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-[0_4px_15px_rgba(99,102,241,0.4)] border-transparent hover:-translate-y-0.5; }
+            .category-tab:nth-child(9).active { @apply bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white shadow-[0_4px_15px_rgba(217,70,239,0.4)] border-transparent hover:-translate-y-0.5; }
+
+            .category-tab:nth-child(1):hover:not(.active) { @apply text-rose-600 border-rose-300 bg-rose-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(2):hover:not(.active) { @apply text-blue-600 border-blue-300 bg-blue-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(3):hover:not(.active) { @apply text-emerald-600 border-emerald-300 bg-emerald-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(4):hover:not(.active) { @apply text-amber-600 border-amber-300 bg-amber-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(5):hover:not(.active) { @apply text-purple-600 border-purple-300 bg-purple-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(6):hover:not(.active) { @apply text-cyan-600 border-cyan-300 bg-cyan-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(7):hover:not(.active) { @apply text-pink-600 border-pink-300 bg-pink-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(8):hover:not(.active) { @apply text-indigo-600 border-indigo-300 bg-indigo-50 hover:-translate-y-0.5; }
+            .category-tab:nth-child(9):hover:not(.active) { @apply text-fuchsia-600 border-fuchsia-300 bg-fuchsia-50 hover:-translate-y-0.5; }
+            /* Modal Styles */
+            .modal-active {
+                @apply overflow-hidden;
+            }
+            .modal-overlay {
+                @apply fixed inset-0 bg-[#0f172a]/70 backdrop-blur-sm z-[100] transition-opacity duration-300 ease-out opacity-0 pointer-events-none;
+            }
+            .modal-overlay.active {
+                @apply opacity-100 pointer-events-auto;
+            }
+            .modal-content {
+                @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[90%] max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] z-[101] transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 scale-[0.8] pointer-events-none overflow-hidden;
+            }
+            .modal-content.active {
+                @apply opacity-100 scale-100 pointer-events-auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-[#f8fafc]/90 antialiased"
+    style="background-image: url('img/bg.png'); background-attachment: fixed; background-size: cover; background-position: center; background-blend-mode: multiply;">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <img src="img/logo.jpg" alt="Sri Udhayam Jobs Logo"
+                        class="h-12 w-12 object-contain rounded-xl shadow-md group-hover:opacity-90 transition-opacity">
+                    <span class="font-heading font-bold text-xl text-gray-900 tracking-tight">Sri Udhayam Jobs</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex gap-8 items-center">
+                    <a href="#home" class="nav-link text-primary-600">Home</a>
+                    <a href="#jobs" class="nav-link">Jobs</a>
+                    <a href="#apply" class="nav-link">Apply Now</a>
+                    <a href="#employers" class="nav-link">Employers</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+
+                    <!-- Custom Language Buttons -->
+                    <div class="ml-4 pl-4 border-l border-gray-200 flex items-center gap-2">
+                        <button onclick="translatePage('en')"
+                            class="px-3 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-xs font-bold text-gray-700 transition-colors uppercase">EN</button>
+                        <button onclick="translatePage('ta')"
+                            class="px-3 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-xs font-bold text-gray-700 transition-colors">தமிழ்</button>
+                        <button onclick="translatePage('hi')"
+                            class="px-3 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-xs font-bold text-gray-700 transition-colors">हिन्दी</button>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="ml-4 pl-4 border-l border-gray-200 flex items-center gap-3">
+                        <a href="https://www.youtube.com/@sriudhayam-wz2vr" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-[#ff0000] transition-all hover:scale-110"
+                            title="YouTube Channel">
+                            <i class="ph-fill ph-youtube-logo text-2xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/sriudhayamjobs.official/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-[#1877F2] transition-all hover:scale-110"
+                            title="Facebook Page">
+                            <i class="ph-fill ph-facebook-logo text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sri_udhayam_job/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-[#E1306C] transition-all hover:scale-110"
+                            title="Instagram Page">
+                            <i class="ph-fill ph-instagram-logo text-2xl"></i>
+                        </a>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Panel -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl overflow-hidden px-4 py-4 space-y-4">
+            <a href="#home" class="block py-2 text-primary-600 font-medium">Home</a>
+            <a href="#jobs" class="block py-2 text-gray-600 hover:text-primary-600 font-medium">Jobs</a>
+            <a href="#apply" class="block py-2 text-gray-600 hover:text-primary-600 font-medium">Apply Now</a>
+            <a href="#employers" class="block py-2 text-gray-600 hover:text-primary-600 font-medium">Employers</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-primary-600 font-medium">About</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-primary-600 font-medium">Contact</a>
+            <div class="pt-4 border-t border-gray-100 pb-4">
+                <p class="text-xs text-gray-400 font-bold mb-3 uppercase tracking-wider px-2">Select Language</p>
+                <div class="flex gap-2">
+                    <button onclick="translatePage('en')"
+                        class="flex-1 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-sm font-bold text-gray-700 transition-colors uppercase">EN</button>
+                    <button onclick="translatePage('ta')"
+                        class="flex-1 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-sm font-bold text-gray-700 transition-colors">தமிழ்</button>
+                    <button onclick="translatePage('hi')"
+                        class="flex-1 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-sm font-bold text-gray-700 transition-colors">हिन्दी</button>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap justify-center gap-6">
+                    <a href="https://www.youtube.com/@sriudhayam-wz2vr" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-[#ff0000] transition-colors flex items-center gap-2 font-bold text-sm">
+                        <i class="ph-fill ph-youtube-logo text-3xl"></i> YouTube
+                    </a>
+                    <a href="https://www.facebook.com/sriudhayamjobs.official/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-[#1877F2] transition-colors flex items-center gap-2 font-bold text-sm">
+                        <i class="ph-fill ph-facebook-logo text-3xl"></i> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/sri_udhayam_job/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-[#E1306C] transition-colors flex items-center gap-2 font-bold text-sm">
+                        <i class="ph-fill ph-instagram-logo text-3xl"></i> Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="home"
+            class="relative bg-[#0f172a] overflow-hidden min-h-[90vh] flex items-center border-b border-gray-800">
+            <!-- Animated Background Gradient Blobs -->
+            <div
+                class="absolute top-0 -left-4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-60 animate-blob">
+            </div>
+            <div
+                class="absolute top-0 -right-4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-60 animate-blob animate-delay-2000">
+            </div>
+            <div
+                class="absolute -bottom-8 left-20 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-60 animate-blob animate-delay-4000">
+            </div>
+
+            <!-- Hero Background Image with Overlay -->
+            <div
+                class="absolute inset-0 bg-[url('img/hero.png')] bg-cover bg-center bg-no-repeat mix-blend-overlay opacity-30 z-0">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0f172a]/50 to-[#0f172a] z-0"></div>
+
+            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
+                <div class="text-center max-w-4xl mx-auto">
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 text-white font-bold text-sm mb-8 border border-white/20 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:bg-white/20 transition-all duration-300 cursor-default animate-fade-in animate-float">
+                        <i class="ph-fill ph-sparkle text-yellow-400 text-lg"></i>
+                        <span>₹25,000+ Salary Jobs Available</span>
+                    </div>
+
+                    <h2 class="font-heading text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-purple-300 to-pink-300 mb-4 animate-slide-up drop-shadow-md">
+                        Sri Udhayam Jobs
+                    </h2>
+                    
+                    <h1
+                        class="font-heading text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-8 relative animate-slide-up bg-clip-text text-transparent bg-gradient-to-r from-white via-primary-50 to-white drop-shadow-2xl">
+                        Find <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-purple-400 to-pink-400 relative">Jobs
+                            <svg class="absolute -bottom-4 left-0 w-full h-5 text-pink-500/70 -z-10"
+                                viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M0 10 C 20 20, 80 0, 100 10" stroke="currentColor" fill="none"
+                                    stroke-width="6" />
+                            </svg></span> Across India
+                    </h1>
+
+                    <p
+                        class="text-xl md:text-2xl text-primary-100/90 mb-12 leading-relaxed max-w-3xl mx-auto font-medium animate-slide-up">
+                        Trusted Job Consultancy in Tirupur. We connect honest, hardworking job seekers with leading
+                        companies that pay fairly and treat workers right.
+                    </p>
+
+                    <!-- Search Bar in Hero -->
+                    <div
+                        class="max-w-3xl mx-auto bg-white/10 backdrop-blur-xl p-3 rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex flex-col sm:flex-row gap-3 border border-white/20 animate-slide-up">
+                        <div class="flex-1 flex items-center px-6 bg-white rounded-2xl">
+                            <i class="ph ph-magnifying-glass text-primary-500 text-2xl"></i>
+                            <input type="text" id="heroSearch" placeholder="Search job title (e.g., Driver, Factory)..."
+                                class="w-full bg-transparent border-none outline-none focus:ring-0 py-5 px-4 text-gray-800 font-medium text-lg placeholder-gray-400">
+                        </div>
+                        <button onclick="document.getElementById('jobs').scrollIntoView({behavior: 'smooth'})"
+                            class="btn-primary py-5 px-10 text-lg whitespace-nowrap !rounded-2xl">
+                            Search Jobs
+                        </button>
+                    </div>
+
+                    <div
+                        class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-base text-gray-100 font-semibold animate-slide-up">
+                        <div class="flex items-center gap-2"><i
+                                class="ph-fill ph-check-circle text-pink-400 text-xl"></i> Free Registration</div>
+                        <div class="flex items-center gap-2"><i
+                                class="ph-fill ph-check-circle text-pink-400 text-xl"></i> Direct Company Pay</div>
+                        <div class="flex items-center gap-2"><i
+                                class="ph-fill ph-check-circle text-pink-400 text-xl"></i> No Hidden Fees</div>
+                    </div>
+
+                    <!-- Social Icons in Hero -->
+                    <div class="mt-10 flex flex-wrap items-center justify-center gap-4 animate-slide-up"
+                        style="animation-delay: 0.2s;">
+                        <span class="text-gray-300 font-medium mr-2">Follow Us:</span>
+                        <a href="https://www.youtube.com/@sriudhayam-wz2vr" target="_blank" rel="noopener noreferrer"
+                            class="w-14 h-14 rounded-full bg-white/10 hover:bg-[#ff0000] flex items-center justify-center text-white border border-white/20 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]"
+                            title="YouTube Channel">
+                            <i class="ph-fill ph-youtube-logo text-3xl"></i>
+                        </a>
+                        <a href="https://www.facebook.com/sriudhayamjobs.official/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-14 h-14 rounded-full bg-white/10 hover:bg-[#1877F2] flex items-center justify-center text-white border border-white/20 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(24,119,242,0.5)]"
+                            title="Facebook Page">
+                            <i class="ph-fill ph-facebook-logo text-3xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sri_udhayam_job/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-14 h-14 rounded-full bg-white/10 hover:bg-[#E1306C] flex items-center justify-center text-white border border-white/20 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(225,48,108,0.5)]"
+                            title="Instagram Page">
+                            <i class="ph-fill ph-instagram-logo text-3xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Dynamic Jobs Section -->
+
+        <section id="jobs"
+            class="py-24 bg-gradient-to-br from-emerald-50 via-white to-cyan-50 relative overflow-hidden"
+            data-aos="fade-up" data-aos-duration="800">
+            <!-- Decorative Background Animation -->
+            <div
+                class="absolute -top-40 -right-40 w-96 h-96 bg-purple-200/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob">
+            </div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-200/40 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"
+                style="animation-delay: 4s;"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-12">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Job Openings</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-lg">Discover top paying opportunities matched to your
+                        skills.</p>
+                </div>
+
+                <!-- Job Filters -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
+                    <!-- Search Input -->
+                    <div class="w-full md:w-80 relative">
+                        <i
+                            class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                        <input type="text" id="jobSearchInput" placeholder="Filter by Job Title..."
+                            class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all shadow-sm">
+                    </div>
+
+                    <!-- Category Tabs (Scrollable on Mobile) -->
+                    <div class="w-full md:w-auto overflow-x-auto pb-2 -mb-2 scrollbar-hide">
+                        <div class="flex gap-2" id="categoryTabs">
+                            <button class="category-tab active" data-category="All">All Jobs</button>
+                            <button class="category-tab" data-category="Factory">Factory</button>
+                            <button class="category-tab" data-category="General">Helper</button>
+                            <button class="category-tab" data-category="Farm">Farm</button>
+                            <button class="category-tab" data-category="Driver">Driver</button>
+                            <button class="category-tab" data-category="Office">Office</button>
+                            <button class="category-tab" data-category="Technical">Tech</button>
+                            <button class="category-tab" data-category="Hotel">Hotel</button>
+                            <button class="category-tab" data-category="Security">Security</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Grid Container -->
+                <div id="jobGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Rendered by JS -->
+                </div>
+
+                <!-- Empty State Template -->
+                <div id="emptyState" class="hidden py-16 text-center bg-white rounded-2xl border border-gray-100">
+                    <div
+                        class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+                        <i class="ph ph-magnifying-glass text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">No jobs found</h3>
+                    <p class="text-gray-500">Try adjusting your search or filter criteria.</p>
+                </div>
+
+                <!-- Load More Button -->
+                <div id="loadMoreContainer" class="hidden text-center mt-12">
+                    <button id="loadMoreBtn" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary-600 font-bold border-2 border-primary-100 rounded-full hover:bg-primary-50 hover:border-primary-300 hover:shadow-lg transition-all duration-300 shadow-sm active:scale-95">
+                        <i class="ph-bold ph-caret-down text-xl"></i> Load More Jobs
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Section -->
+        <section id="apply"
+            class="py-24 bg-gradient-to-tl from-rose-50 via-white to-amber-50 border-t border-white relative overflow-hidden"
+            data-aos="fade-up" data-aos-duration="800">
+            <!-- Decorative Glow -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-primary-100/30 to-pink-100/30 blur-[120px] rounded-full pointer-events-none">
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div
+                    class="inline-flex items-center justify-center gap-2 mb-4 bg-primary-50 px-4 py-2 rounded-full shadow-sm border border-primary-100 text-primary-700 font-bold uppercase tracking-wider text-xs">
+                    <i class="ph-fill ph-paper-plane-tilt"></i> For Job Seekers
+                </div>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">Ready to Apply?</h2>
+                <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Register for job opportunities by filling out
+                    the official form below. If you prefer a faster process, you can also message us directly on
+                    WhatsApp!</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-left">
+                    <!-- Option 1: WhatsApp -->
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-sm h-fit">
+                        <div
+                            class="w-16 h-16 bg-whatsapp/10 text-whatsapp rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm">
+                            <i class="ph-fill ph-whatsapp-logo"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-gray-900 mb-4">Fast Apply via WhatsApp</h3>
+                        <p class="text-gray-600 mb-6">Skip the complicated forms. Message us directly on WhatsApp with
+                            your details or the job you are interested in. We respond within minutes.</p>
+                        <h3 class="font-semibold text-lg text-gray-900 mb-4 text-left">How to apply:</h3>
+                        <ol class="space-y-4 text-gray-600 mb-8">
+                            <li class="flex gap-3"><span
+                                    class="w-6 h-6 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center font-bold text-sm shrink-0">1</span>
+                                Click the Apply on WhatsApp button.</li>
+                            <li class="flex gap-3"><span
+                                    class="w-6 h-6 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center font-bold text-sm shrink-0">2</span>
+                                Send us a message with your Name, Phone Number, and Job Role.</li>
+                            <li class="flex gap-3"><span
+                                    class="w-6 h-6 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center font-bold text-sm shrink-0">3</span>
+                                We will call you to schedule your interview or immediate placement!</li>
+                        </ol>
+                        <a href="https://wa.me/917092733430?text=Hello%20Sri%20Udhayam%20Jobs.%20I%20want%20to%20apply%20for%20a%20job."
+                            target="_blank"
+                            class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#25D366] text-white font-bold text-lg rounded-xl hover:bg-[#20bd5a] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                            <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Message Us (70927 33430)
+                        </a>
+                        <a href="https://wa.me/917339153430?text=Hello%20Sri%20Udhayam%20Jobs.%20I%20want%20to%20apply%20for%20a%20job."
+                            target="_blank"
+                            class="w-full flex items-center justify-center gap-2 px-6 py-4 mt-3 bg-indigo-600 text-white font-bold text-lg rounded-xl hover:bg-indigo-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                            <i class="ph-fill ph-whatsapp-logo text-2xl"></i> Message Us (73391 53430)
+                        </a>
+                    </div>
+
+                    <!-- Option 2: Google Form -->
+                    <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col h-fit">
+                        <div
+                            class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm">
+                            <i class="ph-fill ph-article"></i>
+                        </div>
+                        <h3 class="font-bold text-2xl text-gray-900 mb-4">Apply via Application Form</h3>
+                        <p class="text-gray-600 mb-8 flex-grow">Provide us with your detailed information, educational
+                            background, and work experience by filling out our official Google Form. This helps us find
+                            the perfect match for you.</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0BEvdhEUKHN7IMwdYdW-3sCNMVnJCXcGT18EWCa788E7cqA/viewform"
+                            target="_blank"
+                            class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-primary-600 text-white font-bold text-lg rounded-xl hover:bg-primary-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                            <i class="ph-fill ph-arrow-up-right text-2xl"></i> Open Application Form
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Employer Form Section -->
+        <section id="employers"
+            class="py-24 bg-gradient-to-r from-purple-50 via-white to-fuchsia-50 border-t border-white relative overflow-hidden"
+            data-aos="fade-up" data-aos-duration="800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div
+                    class="inline-flex items-center justify-center gap-2 mb-4 bg-white px-4 py-2 rounded-full shadow-sm border border-primary-200 text-primary-700 font-bold uppercase tracking-wider text-xs">
+                    <i class="ph-fill ph-buildings"></i> For Companies
+                </div>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">Looking to Hire Staff?</h2>
+                <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Post your manpower requirements below and our
+                    team will provide the best candidates quickly and reliably.</p>
+
+                <div class="max-w-2xl mx-auto bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+                    <div
+                        class="w-20 h-20 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center text-4xl mb-6 mx-auto shadow-sm">
+                        <i class="ph-fill ph-buildings"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-gray-900 mb-4">Employer Registration Form</h3>
+                    <p class="text-gray-600 mb-8 text-lg">Click the button below to fill out your company's manpower
+                        requirements. Our team will review your needs and get back to you with the best available
+                        candidates quickly.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1N861PtkDp5AGbmms6JbagrgeKDnJRZ7OvDXrXyl7uagVxw/viewform"
+                        target="_blank"
+                        class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 text-white font-bold text-xl rounded-xl hover:shadow-[0_8px_30px_rgba(124,58,237,0.4)] hover:-translate-y-1 transition-all duration-300">
+                        <i class="ph-fill ph-clipboard-text text-3xl"></i> Fill Manpower Request
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-24 bg-gradient-to-bl from-amber-50 via-white to-yellow-50 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <div
+                        class="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-primary-50 text-primary-700 text-xs font-bold uppercase tracking-widest rounded-full border border-primary-100">
+                        <i class="ph-fill ph-seal-check"></i> Certified company
+                    </div>
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Sri Udhayam Jobs
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Government Registered consultancy providing transparent and reliable manpower solutions in
+                        <!-- View Buttons -->
+                    <div class="mt-10 flex flex-wrap justify-center gap-4">
+                        <button onclick="openCertificateModal()"
+                            class="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white hover:bg-primary-700 font-bold rounded-2xl shadow-[0_8px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300 group">
+                            <i class="ph ph-certificate text-2xl group-hover:rotate-12 transition-transform"></i>
+                            Verify Our Registration
+                        </button>
+                        <button onclick="openBannerModal()"
+                            class="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white hover:bg-primary-700 font-bold rounded-2xl shadow-[0_8px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300 group">
+                            <i class="ph ph-presentation text-2xl group-hover:rotate-12 transition-transform"></i>
+                            View Company Banner
+                        </button>
+                        <a href="img/gst_certificate.pdf" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white hover:bg-primary-700 font-bold rounded-2xl shadow-[0_8px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300 group">
+                            <i class="ph ph-file-pdf text-2xl group-hover:rotate-12 transition-transform"></i>
+                            View GST Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="max-w-3xl mx-auto text-center space-y-6">
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
+                        <strong class="text-gray-900">Sri Udhayam Jobs</strong> is a trusted job consultancy based in
+                        Tiruppur, helping job seekers find the right opportunities across various industries. We are
+                        committed to providing reliable and genuine job services for both freshers and experienced
+                        candidates.
+                    </p>
+
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
+                        We are a
+                        <span class="font-semibold text-purple-600">government-registered organization under Udyam
+                            (MSME)</span>
+                        , ensuring that our business operates legally and maintains transparency in all our services.
+                        This certification reflects our authenticity and trust.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Social Media Banner (Hidden as requested)
+                    <div class="relative group" data-aos="fade-right" data-aos-delay="200">
+                        ... (Rest of content was here)
+                    </div>
+                    -->
+
+                    <!-- Right: Registration Certificate (Hidden as requested)
+                    <div class="relative group cursor-pointer" data-aos="zoom-in" data-aos-delay="400" onclick="openCertificateModal()">
+                         ... (Rest of content was here)
+                    </div>
+                    -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials / Reviews Section -->
+        <section id="reviews"
+            class="py-24 bg-gradient-to-b from-white to-[#eff6ff] border-t border-white relative overflow-hidden"
+            data-aos="fade-up" data-aos-duration="800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16">
+                    <div
+                        class="inline-flex items-center justify-center gap-2 mb-4 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                        <svg class="w-6 h-6 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                        <span class="font-bold text-gray-800">Google Reviews</span>
+                    </div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">What Our Candidates Say
+                    </h2>
+
+                    <div class="flex items-center justify-center gap-4 text-gray-600">
+                        <div class="flex items-center text-yellow-400 text-2xl">
+                            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                class="ph-fill ph-star"></i>
+                        </div>
+                        <span class="font-bold text-xl text-gray-900">5.0</span>
+                        <span class="text-sm">(Based on 205 authentic reviews)</span>
+                    </div>
+                </div>
+
+                <div
+                    class="relative w-full overflow-hidden mt-8 py-4 [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
+                    <div class="flex w-max animate-scroll hover:[animation-play-state:paused] items-stretch">
+
+                        <!-- Set 1 -->
+                        <div class="flex gap-8 px-4 shrink-0 pointer-events-auto items-stretch">
+                            <!-- Review 1 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"One of the
+                                    best job consultancies. Friendly staff and genuine opportunities."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg font-heading shrink-0">
+                                        S</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Suresh Suresh</h4>
+                                        <p class="text-xs text-gray-500">3 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 2 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"100% job
+                                    for freshers and experienced people... Thank you udhayam jobs.."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-lg font-heading shrink-0">
+                                        N</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Naveen Kumar 007</h4>
+                                        <p class="text-xs text-gray-500">3 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 3 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"Very good
+                                    consultancy. staff are polite and helped me get a job quickly. thank you udhayam
+                                    jobs team."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-bold text-lg font-heading shrink-0">
+                                        T</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Thirisha Thirisha</h4>
+                                        <p class="text-xs text-gray-500">1 month ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 4 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"I was
+                                    struggling to find work, but Sri Udhayam placed me in a well-paying garment factory
+                                    immediately. Highly recommended!"</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-lg font-heading shrink-0">
+                                        K</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Karthik R</h4>
+                                        <p class="text-xs text-gray-500">1 week ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 5 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"They don't
+                                    take any hidden fees like other agencies do. I am very happy with my driver job and
+                                    my direct company salary."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold text-lg font-heading shrink-0">
+                                        M</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Muthu Kumar</h4>
+                                        <p class="text-xs text-gray-500">2 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 6 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"Excellent
+                                    communication and support. Guided me properly to the location and helped me settle
+                                    in my new role."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-700 font-bold text-lg font-heading shrink-0">
+                                        P</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Priya Anand</h4>
+                                        <p class="text-xs text-gray-500">3 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Set 2 (Duplicate for seamless loop) -->
+                        <div class="flex gap-8 px-4 shrink-0 pointer-events-auto items-stretch" aria-hidden="true">
+                            <!-- Review 1 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"One of the
+                                    best job consultancies. Friendly staff and genuine opportunities."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-700 font-bold text-lg font-heading shrink-0">
+                                        S</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Suresh Suresh</h4>
+                                        <p class="text-xs text-gray-500">3 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 2 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"100% job
+                                    for freshers and experienced people... Thank you udhayam jobs.."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-lg font-heading shrink-0">
+                                        N</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Naveen Kumar 007</h4>
+                                        <p class="text-xs text-gray-500">3 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 3 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"Very good
+                                    consultancy. staff are polite and helped me get a job quickly. thank you udhayam
+                                    jobs team."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-bold text-lg font-heading shrink-0">
+                                        T</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Thirisha Thirisha</h4>
+                                        <p class="text-xs text-gray-500">1 month ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 4 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"I was
+                                    struggling to find work, but Sri Udhayam placed me in a well-paying garment factory
+                                    immediately. Highly recommended!"</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-lg font-heading shrink-0">
+                                        K</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Karthik R</h4>
+                                        <p class="text-xs text-gray-500">1 week ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 5 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"They don't
+                                    take any hidden fees like other agencies do. I am very happy with my driver job and
+                                    my direct company salary."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold text-lg font-heading shrink-0">
+                                        M</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Muthu Kumar</h4>
+                                        <p class="text-xs text-gray-500">2 weeks ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Review 6 -->
+                            <div
+                                class="w-[320px] md:w-[380px] bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative shrink-0 whitespace-normal text-left flex flex-col">
+                                <i class="ph-fill ph-quotes text-5xl text-primary-50 absolute top-6 right-6"></i>
+                                <div class="flex items-center text-yellow-400 mb-4 text-sm">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                                <p class="text-gray-700 leading-relaxed mb-8 relative z-10 italic flex-grow">"Excellent
+                                    communication and support. Guided me properly to the location and helped me settle
+                                    in my new role."</p>
+                                <div class="flex items-center gap-4 mt-auto">
+                                    <div
+                                        class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-700 font-bold text-lg font-heading shrink-0">
+                                        P</div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Priya Anand</h4>
+                                        <p class="text-xs text-gray-500">3 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section id="partners" class="py-24 bg-white border-t border-gray-100 relative overflow-hidden" data-aos="fade-up" data-aos-duration="800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Trusted Partners</h2>
+                <p class="text-xl text-gray-600 mb-16 max-w-2xl mx-auto">Trusted by leading companies in textile and printing industries.</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center">
+                    <!-- Partner 1 -->
+                    <div class="group relative flex items-center justify-center w-full h-40 p-6 bg-white rounded-3xl border border-gray-100 hover:border-primary-300 shadow-sm hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500 transform hover:-translate-y-3 cursor-pointer">
+                        <img src="img/alayar_cotton_logo.png" alt="Alayar Cotton Logo" class="max-h-24 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out">
+                    </div>
+                    <!-- Partner 2 -->
+                    <div class="group relative flex items-center justify-center w-full h-40 p-6 bg-white rounded-3xl border border-gray-100 hover:border-primary-300 shadow-sm hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500 transform hover:-translate-y-3 cursor-pointer">
+                        <img src="img/maniraj_logo.png" alt="Maniraj Logo" class="max-h-24 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out">
+                    </div>
+                    <!-- Partner 3 -->
+                    <div class="group relative flex items-center justify-center w-full h-40 p-6 bg-white rounded-3xl border border-gray-100 hover:border-primary-300 shadow-sm hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500 transform hover:-translate-y-3 cursor-pointer">
+                        <img src="img/chennai_silks_logo.png" alt="Chennai Silks Logo" class="max-h-24 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out">
+                    </div>
+                    <!-- Partner 4 -->
+                    <div class="group relative flex items-center justify-center w-full h-40 p-6 bg-white rounded-3xl border border-gray-100 hover:border-primary-300 shadow-sm hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-500 transform hover:-translate-y-3 cursor-pointer">
+                        <img src="img/kprlogo.png" alt="KPR Mill Logo" class="max-h-10 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Tie-Ups Section -->
+        <section id="future-tie-ups" class="py-24 bg-gray-50 border-t border-gray-100 relative overflow-hidden" data-aos="fade-up" data-aos-duration="800">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary-200 rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">Future Business Tie-Ups</h2>
+                <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">We are focused on building long-term relationships with trusted industry leaders and continuously improving our standards.</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-stretch justify-items-center mb-16">
+                    <!-- Tie-up 1: Tata Group -->
+                    <div class="group relative flex flex-col items-center justify-center p-6 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:border-primary-300 transition-all duration-300 transform hover:-translate-y-2 h-40">
+                        <img src="img/tata_logo.png" alt="Tata Group Logo" class="max-h-16 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out mb-3">
+                        <span class="font-heading font-bold text-lg text-gray-800 tracking-wide group-hover:text-primary-600 transition-colors text-center hidden group-hover:block absolute bottom-4">Tata Group</span>
+                    </div>
+                    <!-- Tie-up 2: TVS Motor -->
+                    <div class="group relative flex flex-col items-center justify-center p-6 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:border-primary-300 transition-all duration-300 transform hover:-translate-y-2 h-40">
+                        <img src="img/tvs_logo.png" alt="TVS Motor Logo" class="max-h-16 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out mb-3">
+                        <span class="font-heading font-bold text-lg text-gray-800 tracking-wide group-hover:text-primary-600 transition-colors text-center hidden group-hover:block absolute bottom-4">TVS Motor</span>
+                    </div>
+                    <!-- Tie-up 3: Honda -->
+                    <div class="group relative flex flex-col items-center justify-center p-6 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:border-primary-300 transition-all duration-300 transform hover:-translate-y-2 h-40">
+                        <img src="img/honda_logo.png" alt="Honda Logo" class="max-h-16 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out mb-3">
+                        <span class="font-heading font-bold text-lg text-gray-800 tracking-wide group-hover:text-primary-600 transition-colors text-center hidden group-hover:block absolute bottom-4">Honda</span>
+                    </div>
+                    <!-- Tie-up 4: Larsen & Toubro -->
+                    <div class="group relative flex flex-col items-center justify-center p-6 bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:border-primary-300 transition-all duration-300 transform hover:-translate-y-2 h-40">
+                        <img src="img/lnt_logo.png" alt="Larsen & Toubro Logo" class="max-h-16 max-w-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-in-out mb-3">
+                        <span class="font-heading font-bold text-md text-gray-800 tracking-wide text-center group-hover:text-primary-600 transition-colors hidden group-hover:block absolute bottom-2 leading-tight">Larsen & Toubro<br><span class="text-xs text-primary-400 block">(L&T)</span></span>
+                    </div>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-gray-100 text-left relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-100 rounded-bl-full opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <h3 class="font-heading font-bold text-2xl text-gray-900 mb-8 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center shrink-0 shadow-sm">
+                                <i class="ph-fill ph-rocket-launch text-2xl"></i>
+                            </div>
+                            These upcoming collaborations aim to:
+                        </h3>
+                        <ul class="space-y-6 text-lg text-gray-700">
+                            <li class="flex items-start gap-5">
+                                <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="ph-bold ph-check text-lg"></i>
+                                </div>
+                                <span class="font-medium">Strengthen our service quality</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="ph-bold ph-check text-lg"></i>
+                                </div>
+                                <span class="font-medium">Expand our business network</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="ph-bold ph-check text-lg"></i>
+                                </div>
+                                <span class="font-medium">Provide better opportunities and solutions to our customers</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-gray-900 text-white relative overflow-hidden" data-aos="fade-up"
+            data-aos-duration="800">
+            <!-- Background Glow -->
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[120px] opacity-20 pointer-events-none">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                    <div>
+                        <h2 class="font-heading text-4xl font-bold mb-6">Get in Touch</h2>
+                        <p class="text-gray-400 text-lg mb-10">Visit our office or call us anytime for job requirements
+                            and career guidance.</p>
+
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-primary-400 text-xl shrink-0 backdrop-blur-sm border border-white/5">
+                                    <i class="ph-fill ph-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-200">Phone</h4>
+                                    <a href="tel:+917092733430"
+                                        class="text-xl font-bold text-white hover:text-primary-400 transition-colors block mt-1">+91
+                                        70927 33430</a>
+                                    <a href="tel:+917339153430"
+                                        class="text-xl font-bold text-white hover:text-primary-400 transition-colors block mt-1">+91
+                                        73391 53430</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-whatsapp text-xl shrink-0 backdrop-blur-sm border border-white/5">
+                                    <i class="ph-fill ph-whatsapp-logo"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-200">WhatsApp</h4>
+                                    <a href="https://wa.me/917092733430" target="_blank"
+                                        class="text-lg font-bold text-white hover:text-whatsapp transition-colors block mt-1">+91
+                                        70927 33430</a>
+                                    <a href="https://wa.me/917339153430" target="_blank"
+                                        class="text-lg font-bold text-white hover:text-whatsapp transition-colors block mt-1">+91
+                                        73391 53430</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-primary-400 text-xl shrink-0 backdrop-blur-sm border border-white/5">
+                                    <i class="ph-fill ph-map-pin"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-200">Location</h4>
+                                    <p class="text-lg text-gray-300 mt-1 leading-relaxed">Sri Udhayam Jobs<br>4/47,
+                                        Railway Feeder Rd, near KC ortho hospital,
+                                        Kannipiran Colony, Valipalayam, Tiruppur, Tamil Nadu 641601,India
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map / Image Container -->
+                    <div class="bg-gray-800 p-2 rounded-3xl border border-gray-700 shadow-2xl">
+                        <div class="aspect-video w-full rounded-2xl overflow-hidden bg-gray-700 relative">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.898!2d77.3411753!3d11.1091423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9070b6ed8b5cd%3A0xe23ec688e203c40e!2sSri%20Udhayam%20Jobs!5e0!3m2!1sen!2sin!4v1711942000000!5m2!1sen!2sin"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade" class="absolute inset-0">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-12 border-t border-gray-800">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3 group">
+                <img src="img/logo.jpg" alt="Sri Udhayam Jobs Logo"
+                    class="h-10 w-10 object-contain rounded-lg bg-white p-0.5 shadow-sm">
+                <span class="font-heading font-bold text-xl text-white">Sri Udhayam Jobs</span>
+            </div>
+            <p class="text-gray-500 text-sm">
+                &copy; 2026 Sri Udhayam Job Consultancy. All rights reserved. <br class="md:hidden">Trusted placements
+                across India.
+            </p>
+            <div class="flex items-center gap-6 text-gray-400">
+                <p class="hidden sm:block">Tiruppur, TN</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://www.youtube.com/@sriudhayam-wz2vr" target="_blank" rel="noopener noreferrer"
+                        class="hover:text-[#ff0000] transition-colors" title="YouTube Channel">
+                        <i class="ph-fill ph-youtube-logo text-3xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sriudhayamjobs.official/" target="_blank"
+                        rel="noopener noreferrer" class="hover:text-[#1877F2] transition-colors" title="Facebook Page">
+                        <i class="ph-fill ph-facebook-logo text-3xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sri_udhayam_job/" target="_blank"
+                        rel="noopener noreferrer" class="hover:text-[#E1306C] transition-colors" title="Instagram Page">
+                        <i class="ph-fill ph-instagram-logo text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917092733430?text=Hi%20Sri%20Udhayam%20Jobs%2C%20I%20am%20looking%20for%20a%20job."
+        target="_blank"
+        class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_8px_30px_rgb(37,211,102,0.4)] flex items-center justify-center text-3xl hover:-translate-y-2 hover:shadow-[0_12px_40px_rgb(37,211,102,0.6)] transition-all duration-300 z-50 animate-bounce"
+        aria-label="Chat on WhatsApp">
+        <i class="ph-fill ph-whatsapp-logo"></i>
+    </a>
+
+    <!-- Custom Local Translate Logic -->
+    <script type="text/javascript">
+        let currentLang = localStorage.getItem('sriudhayam_lang') || 'en';
+
+        const t = (str) => {
+            if (!str) return '';
+            let s = str.trim();
+            if (currentLang === 'en') return s;
+            if (typeof translations !== 'undefined' && translations[currentLang]) {
+                return translations[currentLang][s] || s;
+            }
+            return s;
+        }
+
+        function translatePage(langCode) {
+            currentLang = langCode;
+            localStorage.setItem('sriudhayam_lang', langCode);
+            walkAndTranslate(document.body);
+            if (typeof renderJobs === 'function') renderJobs();
+
+            // Update active state visuals for lang buttons if needed
+        }
+
+        function walkAndTranslate(node) {
+            // Ignore widget elements or AOS scripts to prevent errors
+            if (node.nodeName === 'SCRIPT' || node.nodeName === 'STYLE' || node.id === 'google_translate_element') return;
+
+            if (node.nodeType === 3) { // Text node
+                let text = node.nodeValue;
+                if (text.trim().length > 0) {
+                    if (node.originalText === undefined) {
+                        // Normalize whitespace to match translations.js keys
+                        node.originalText = text.trim().replace(/\s+/g, ' ');
+                        node.preSpace = text.match(/^\s*/)[0];
+                        node.postSpace = text.match(/\s*$/)[0];
+                    }
+                    node.nodeValue = node.preSpace + t(node.originalText) + node.postSpace;
+                }
+            } else if (node.nodeType === 1) { // Element node
+                if (node.placeholder) {
+                    if (!node.originalPlaceholder) node.originalPlaceholder = node.placeholder.trim();
+                    node.placeholder = t(node.originalPlaceholder);
+                }
+                for (let i = 0; i < node.childNodes.length; i++) {
+                    walkAndTranslate(node.childNodes[i]);
+                }
+            }
+        }
+
+        // Initial application on load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (currentLang !== 'en') {
+                setTimeout(() => walkAndTranslate(document.body), 100);
+            }
+        });
+    </script>
+    <div id="jobContainer" class="job-container"></div>
+
+    <!-- App Logic -->
+    <script>
+        // Job Data
+        const getImage = (title, category) => {
+            const specificKeywords = {
+                'Water Service Worker': 'washed,car',
+                'Water Service Assistant': 'cleaning,spray',
+                'Chicken Farm Worker': 'rooster,poultry',
+                'Cattle Farm Worker': 'cow,farm,cattle',
+                'Egg Farm Worker': 'hen,eggs',
+                'Duck Farm Worker': 'duck,bird',
+                'Goat Farm Worker': 'goat,herd',
+                'Accounts Staff': 'office,calculator',
+                'Male Helper': 'worker,warehouse',
+                'Borewell Vehicle Helper': 'drilling,rig',
+                'Garment Worker': 'garment,factory,sewing',
+                'Collar Manufacturing Worker': 'shirt,sewing',
+                'Driver': 'truck,driver',
+                'Flour Mill Worker': 'flour,grain',
+                'Watchman': 'security,uniform',
+                'Needle Manufacturing Worker': 'needle,metal',
+                'Loading Worker': 'loading,delivery',
+                'Thermocol Worker': 'styrofoam,packing',
+                'Warehouse Worker': 'warehouse,shelves',
+                'Snacks Factory Worker': 'chips,snack',
+                'Welder': 'welding,mask',
+                'Milk Plant Worker': 'dairy,bottle',
+                'AC Mechanic': 'air-conditioner',
+                'Blouse Cutting Master': 'cloth,scissors',
+                'Hollow Block Worker': 'masonry,brick',
+                'Restaurant Worker': 'waiter,serving',
+                'Finance Staff': 'accounting,desk',
+                'Tailor': 'stitching,sewing',
+                'Helper': 'support,worker',
+                'Packing Worker': 'package,tape',
+                'Checking Worker': 'quality,control',
+                'Firewood Worker': 'wood,axe',
+                'Granite Worker': 'granite,quarry',
+                'Firewood Helper': 'logs,carrier',
+                'Garment Checking Worker': 'cloth,quality',
+                'Dyeing Unit Loadman': 'colors,factory'
+            };
+
+            const categoryKeywords = {
+                'Factory': 'industrial,factory',
+                'Farm': 'agriculture,field',
+                'General': 'laborer,working',
+                'Office': 'office,working',
+                'Technical': 'technician,repairs',
+                'Security': 'security,patrolling',
+                'Hotel': 'hotel,hospitality'
+            };
+
+            const query = specificKeywords[title] || categoryKeywords[category] || 'business';
+            if (query.startsWith('file:///') || query.startsWith('img/') || query.includes('.')) return query;
+            return `https://loremflickr.com/400/250/${query}?lock=${Math.abs(title.length + category.length + 18)}`;
+        };
+
+        const jobData = [
+            { id: 1, title: 'Water Service Worker', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/1.jpg'},
+            { id: 2, title: 'Water Service Assistant', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/2.jpg'},
+            { id: 3, title: 'Chicken Farm Worker', category: 'Farm', salary: '15000 - 25000', location: 'Tirupur',image: 'img/3.jpg'},
+            { id: 4, title: 'Accounts Staff', category: 'Office', salary: '15000 - 25000', location: 'Tirupur',image: 'img/4.jpg'},
+            { id: 5, title: 'Male Helper', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/5.jpg'},
+            { id: 6, title: 'Borewell Vehicle Helper', category: 'Driver', salary: '15000 - 25000', location: 'Tirupur',image: 'img/6.jpg'},
+            { id: 7, title: 'Garment Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/7.jpg'},
+            { id: 8, title: 'Collar Manufacturing Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/8.jpg' },
+            { id: 9, title: 'Driver', category: 'Driver', salary: '15000 - 25000', location: 'Tirupur',image: 'img/9.jpg' },
+            { id: 10, title: 'Flour Mill Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/10.jpg' },
+            { id: 11, title: 'Cattle Farm Worker', category: 'Farm', salary: '15000 - 25000', location: 'Tirupur',image: 'img/12.jpg'},
+            { id: 12, title: 'Egg Farm Worker', category: 'Farm', salary: '15000 - 25000', location: 'Tirupur',image: 'img/13.jpg' },
+            { id: 13, title: 'Watchman', category: 'Security', salary: '15000 - 25000', location: 'Tirupur',image: 'img/14.jpg' },
+            { id: 14, title: 'Needle Manufacturing Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/15.jpg' },
+            { id: 15, title: 'Loading Worker', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/16.jpg' },
+            { id: 16, title: 'Thermocol Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/17.jpg' },
+            { id: 17, title: 'Warehouse Worker', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/18.jpg' },
+            { id: 18, title: 'Snacks Factory Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/19.jpg' },
+            { id: 19, title: 'Welder', category: 'Technical', salary: '15000 - 25000', location: 'Tirupur',image: 'img/20.jpg' },
+            { id: 20, title: 'Milk Plant Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/21.jpg' },
+            { id: 21, title: 'AC Mechanic', category: 'Technical', salary: '15000 - 25000', location: 'Tirupur',image: 'img/22.jpg' },
+            { id: 22, title: 'Duck Farm Worker', category: 'Farm', salary: '15000 - 25000', location: 'Tirupur',image: 'img/23.jpg' },
+            { id: 23, title: 'Blouse Cutting Master', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/24.jpg' },
+            { id: 24, title: 'Hollow Block Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/25.jpg' },
+            { id: 25, title: 'Restaurant Worker', category: 'Hotel', salary: '15000 - 25000', location: 'Tirupur',image: 'img/26.jpg' },
+            { id: 26, title: 'Goat Farm Worker', category: 'Farm', salary: '15000 - 25000', location: 'Tirupur',image: 'img/27.jpg' },
+            { id: 27, title: 'Finance Staff', category: 'Office', salary: '15000 - 25000', location: 'Tirupur',image: 'img/28.jpg' },
+            { id: 28, title: 'Tailor', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/29.jpg' },
+            { id: 29, title: 'Helper', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/30.jpg' },
+            { id: 30, title: 'Packing Worker', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/31.jpg' },
+            { id: 31, title: 'Checking Worker', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/32.jpg' },
+            { id: 32, title: 'Firewood Worker', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/33.jpg' },
+            { id: 33, title: 'Granite Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/34.jpg' },
+            { id: 34, title: 'Firewood Helper', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/35.jpg' },
+            { id: 35, title: 'Garment Checking Worker', category: 'Factory', salary: '15000 - 25000', location: 'Tirupur',image: 'img/36.jpg' },
+            { id: 36, title: 'Dyeing Unit Loadman', category: 'General', salary: '15000 - 25000', location: 'Tirupur',image: 'img/37.jpg' }
+        ];
+
+
+        // State
+        let currentSearch = '';
+        let currentCategory = 'All';
+        let visibleJobsCount = 6;
+
+        // DOM Elements
+        const grid = document.getElementById('jobGrid');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('jobSearchInput');
+        const heroSearch = document.getElementById('heroSearch');
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const loadMoreContainer = document.getElementById('loadMoreContainer');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        // Initial Render
+        function initApp() {
+            renderJobs();
+            setupEventListeners();
+        }
+
+        // Render Function
+        function renderJobs() {
+            // Filter Data
+            const filteredJobs = jobData.filter(job => {
+                const searchLower = currentSearch.toLowerCase();
+                const matchSearch = job.title.toLowerCase().includes(searchLower) ||
+                    job.location.toLowerCase().includes(searchLower) ||
+                    t(job.title).toLowerCase().includes(searchLower) ||
+                    t(job.location).toLowerCase().includes(searchLower);
+                const matchCategory = currentCategory === 'All' || job.category === currentCategory;
+                return matchSearch && matchCategory;
+            });
+
+            // Update DOM
+            if (filteredJobs.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                if (loadMoreContainer) loadMoreContainer.classList.add('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                const jobsToDisplay = filteredJobs.slice(0, visibleJobsCount);
+                grid.innerHTML = jobsToDisplay.map((job, idx) => createJobCardHTML(job, idx)).join('');
+                
+                // Toggle Load More Button
+                if (loadMoreContainer) {
+                    if (filteredJobs.length > visibleJobsCount) {
+                        loadMoreContainer.classList.remove('hidden');
+                    } else {
+                        loadMoreContainer.classList.add('hidden');
+                    }
+                }
+            }
+        }
+
+        // HTML Generator
+        function createJobCardHTML(job, index = 0) {
+            const delay = (index % 20) * 80;
+            const msg = encodeURIComponent(`Hi, I am interested in ${t(job.title)} job`);
+            const imageUrl = job.image || getImage(job.title, job.category);
+
+            // Dynamic Multi-Color Theme for Cards
+            const themes = [
+                { hoverBorder: 'hover:border-rose-400', hoverShadow: 'hover:shadow-[0_12px_30px_rgba(244,63,94,0.3)]', gradient: 'from-rose-100', iconBg: 'bg-rose-100', iconColor: 'text-rose-600', badgeText: 'text-rose-600', titleHover: 'group-hover:text-rose-600' },
+                { hoverBorder: 'hover:border-blue-400', hoverShadow: 'hover:shadow-[0_12px_30px_rgba(59,130,246,0.3)]', gradient: 'from-blue-100', iconBg: 'bg-blue-100', iconColor: 'text-blue-600', badgeText: 'text-blue-600', titleHover: 'group-hover:text-blue-600' },
+                { hoverBorder: 'hover:border-emerald-400', hoverShadow: 'hover:shadow-[0_12px_30px_rgba(16,185,129,0.3)]', gradient: 'from-emerald-100', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-600', badgeText: 'text-emerald-600', titleHover: 'group-hover:text-emerald-600' },
+                { hoverBorder: 'hover:border-amber-400', hoverShadow: 'hover:shadow-[0_12px_30px_rgba(245,158,11,0.3)]', gradient: 'from-amber-100', iconBg: 'bg-amber-100', iconColor: 'text-amber-600', badgeText: 'text-amber-600', titleHover: 'group-hover:text-amber-600' },
+                { hoverBorder: 'hover:border-purple-400', hoverShadow: 'hover:shadow-[0_12px_30px_rgba(168,85,247,0.3)]', gradient: 'from-purple-100', iconBg: 'bg-purple-100', iconColor: 'text-purple-600', badgeText: 'text-purple-600', titleHover: 'group-hover:text-purple-600' },
+                { hoverBorder: 'hover:border-cyan-400', hoverShadow: 'hover:shadow-[0_12px_30px_rgba(6,182,212,0.3)]', gradient: 'from-cyan-100', iconBg: 'bg-cyan-100', iconColor: 'text-cyan-600', badgeText: 'text-cyan-600', titleHover: 'group-hover:text-cyan-600' }
+            ];
+            const theme = themes[index % themes.length];
+
+            return `
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 ${theme.hoverBorder} transition-all duration-500 hover:-translate-y-2 animate-slide-up flex flex-col h-full ${theme.hoverShadow}" style="animation-duration: 0.8s; animation-delay: ${delay}ms; animation-fill-mode: both;">
+                    
+                    <!-- Image Wrapper with Zoom Animation -->
+                    <div class="relative h-48 w-full overflow-hidden shrink-0">
+                        <div class="absolute inset-0 bg-gray-900/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="${imageUrl}" alt="${t(job.title)}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                        <!-- Category Badge -->
+                        <div class="absolute top-4 left-4 z-20">
+                            <span class="px-3 py-1.5 bg-white/95 backdrop-blur-md ${theme.badgeText} text-xs font-bold rounded-full shadow-sm border border-gray-100">
+                                ${t(job.category)}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Section -->
+                    <div class="p-6 flex flex-col flex-grow relative bg-white">
+                        <!-- Decorative subtle gradient -->
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${theme.gradient} to-transparent rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-2 ${theme.titleHover} transition-colors z-10">${t(job.title)}</h3>
+                        
+                        <div class="flex flex-wrap items-center gap-2 text-gray-500 text-sm mb-4 z-10">
+                            <i class="ph-fill ph-map-pin text-gray-400 text-lg group-hover:${theme.badgeText} transition-colors"></i>
+                            <span class="font-medium truncate mr-2">${t(job.location)}</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-3 bg-gray-50 rounded-2xl p-3 mb-6 border border-gray-100 z-10">
+                            <div class="w-10 h-10 rounded-xl ${theme.iconBg} ${theme.iconColor} shadow-sm flex items-center justify-center shrink-0 transition-colors">
+                                <i class="ph-bold ph-currency-inr text-xl"></i>
+                            </div>
+                            <div class="flex flex-col overflow-hidden">
+                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Salary Package</span>
+                                <span class="text-sm font-bold text-gray-800 truncate">${job.salary}</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="mt-auto flex gap-3 z-10">
+                            <a href="https://wa.me/917092733430?text=${msg}" target="_blank" class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-bold rounded-xl transition-all duration-300 hover:shadow-[0_8px_20px_rgba(37,211,102,0.3)] hover:-translate-y-1">
+                                <i class="ph-fill ph-whatsapp-logo text-xl"></i> Apply Now
+                            </a>
+                            <a href="https://wa.me/917339153430?text=${msg}" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-100 text-gray-600 hover:${theme.badgeText} border border-gray-200 hover:border-gray-300 rounded-xl transition-all duration-300 hover:shadow-md hover:-translate-y-1 shrink-0" title="Alternative Contact">
+                                <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Filter Search Events
+            const handleSearch = (e) => {
+                currentSearch = e.target.value;
+                visibleJobsCount = 6; // Reset visible count on search
+                if (e.target === heroSearch) searchInput.value = currentSearch;
+                if (e.target === searchInput) heroSearch.value = currentSearch;
+                renderJobs();
+            };
+
+            searchInput.addEventListener('input', handleSearch);
+            heroSearch.addEventListener('input', handleSearch);
+
+            // Category Tab Events
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    // Update Active State Visuals
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+
+                    // Update State and Render
+                    currentCategory = e.currentTarget.dataset.category;
+                    visibleJobsCount = 6; // Reset visible count on category change
+                    renderJobs();
+                });
+            });
+
+            // Load More Event
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    visibleJobsCount += 6;
+                    renderJobs(); // Appending more jobs by re-rendering up to the new count
+                });
+            }
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Auto-close mobile menu on link click
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', initApp);
+
+        // Styling fix for Google Translate Widget
+        const observer = new MutationObserver(() => {
+            const googTeCombo = document.querySelector('.goog-te-combo');
+            if (googTeCombo) {
+                googTeCombo.classList.add('px-2', 'py-1', 'text-sm', 'border-gray-200', 'rounded-lg', 'bg-gray-50', 'text-gray-700', 'focus:ring-2', 'focus:ring-primary-500', 'outline-none');
+            }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+
+    </script>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // whether animation should happen only once - while scrolling down
+            offset: 100, // offset (in px) from the original trigger point
+        });
+
+        // Certificate Modal Functions
+        function openCertificateModal() {
+            document.body.classList.add('modal-active');
+            document.getElementById('certOverlay').classList.add('active');
+            document.getElementById('certModal').classList.add('active');
+        }
+
+        function closeCertificateModal() {
+            document.body.classList.remove('modal-active');
+            document.getElementById('certOverlay').classList.remove('active');
+            document.getElementById('certModal').classList.remove('active');
+        }
+
+        // Banner Modal Functions
+        function openBannerModal() {
+            document.body.classList.add('modal-active');
+            document.getElementById('bannerOverlay').classList.add('active');
+            document.getElementById('bannerModal').classList.add('active');
+        }
+
+        function closeBannerModal() {
+            document.body.classList.remove('modal-active');
+            document.getElementById('bannerOverlay').classList.remove('active');
+            document.getElementById('bannerModal').classList.remove('active');
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCertificateModal();
+                closeBannerModal();
+            }
+        });
+    </script>
+
+    <!-- Certificate Modal Structure -->
+    <div id="certOverlay" class="modal-overlay" onclick="closeCertificateModal()"></div>
+    <div id="certModal" class="modal-content !max-w-4xl !h-[90vh]">
+        <div class="relative bg-white h-full overflow-hidden flex flex-col rounded-3xl shadow-2xl">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-8 py-6 border-b border-gray-100 shrink-0">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center shadow-sm">
+                        <i class="ph-fill ph-certificate text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900">Registration Certificate</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Official Document</p>
+                    </div>
+                </div>
+                <button onclick="closeCertificateModal()"
+                    class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-900 transition-colors">
+                    <i class="ph ph-x text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Optimized for Vertical Image) -->
+            <div class="flex-grow overflow-y-auto px-4 py-8 bg-gray-50/50 flex flex-col items-center">
+                <div class="w-full max-w-2xl bg-white shadow-2xl rounded-sm p-1 border border-gray-100 mb-4">
+                    <img src="img/resgister.jpeg" alt="Registration Certificate" class="w-full h-auto block">
+                </div>
+                <p class="text-xs text-gray-400 italic mb-8 text-center">Scroll down to see the full certificate</p>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-8 py-6 border-t border-gray-100 flex justify-end items-center bg-white shrink-0">
+                <button onclick="closeCertificateModal()"
+                    class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-2xl transition-all shadow-md active:scale-95 text-sm">
+                    Close Viewer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Modal Structure -->
+    <div id="bannerOverlay" class="modal-overlay" onclick="closeBannerModal()"></div>
+    <div id="bannerModal" class="modal-content !max-w-7xl !h-[90vh]">
+        <div class="relative bg-white h-full overflow-hidden flex flex-col rounded-3xl shadow-2xl">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-8 py-6 border-b border-gray-100 shrink-0">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center shadow-sm">
+                        <i class="ph-fill ph-presentation text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900">Company Banner</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Our Professional Journey
+                        </p>
+                    </div>
+                </div>
+                <button onclick="closeBannerModal()"
+                    class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-900 transition-colors">
+                    <i class="ph ph-x text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Optimized for Scrolling View) -->
+            <div class="flex-grow overflow-y-auto p-4 sm:p-12 bg-gray-50/20 flex flex-col items-center">
+                <div class="w-full bg-white shadow-2xl rounded-2xl p-1 border border-gray-100 mb-8">
+                    <img src="img/licence.jpeg" alt="Company Banner" class="w-full h-auto block rounded-2xl">
+                </div>
+                <p class="text-xs text-gray-400 italic mb-4">Scroll to see our professional milestones</p>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-8 py-6 border-t border-gray-100 flex justify-end items-center bg-white shrink-0">
+                <button onclick="closeBannerModal()"
+                    class="px-8 py-3 bg-gray-900 hover:bg-black text-white font-bold rounded-2xl transition-all shadow-md active:scale-95 text-sm">
+                    Close Viewer
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
