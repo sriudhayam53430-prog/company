@@ -90,57 +90,167 @@
 
     </script>
 
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .glass-header {
-                @apply bg-white/80 backdrop-blur-xl border-b border-white/40 shadow-sm;
-            }
-            .nav-link {
-                @apply font-medium text-gray-600 hover:text-primary-600 transition-colors uppercase tracking-wide text-sm relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary-500 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
-            }
-            .btn-primary {
-                @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 via-purple-500 to-pink-500 bg-[length:200%_auto] text-white font-bold rounded-xl shadow-[0_4px_20px_rgba(124,58,237,0.4)] hover:shadow-[0_8px_30px_rgba(124,58,237,0.6)] hover:-translate-y-1 hover:bg-[position:right_center] transition-all duration-500;
-            }
-            .btn-secondary {
-                @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-600 border border-primary-100 font-semibold rounded-xl hover:bg-primary-50 hover:shadow-lg hover:-translate-y-1 transition-all duration-300;
-            }
-            .category-tab {
-                @apply px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap bg-white text-gray-600 border border-gray-200;
-            }
-            .category-tab:nth-child(1).active { @apply bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-[0_4px_15px_rgba(244,63,94,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(2).active { @apply bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-[0_4px_15px_rgba(59,130,246,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(3).active { @apply bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-[0_4px_15px_rgba(16,185,129,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(4).active { @apply bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-[0_4px_15px_rgba(245,158,11,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(5).active { @apply bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white shadow-[0_4px_15px_rgba(168,85,247,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(6).active { @apply bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-[0_4px_15px_rgba(6,182,212,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(7).active { @apply bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-[0_4px_15px_rgba(236,72,153,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(8).active { @apply bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-[0_4px_15px_rgba(99,102,241,0.4)] border-transparent hover:-translate-y-0.5; }
-            .category-tab:nth-child(9).active { @apply bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white shadow-[0_4px_15px_rgba(217,70,239,0.4)] border-transparent hover:-translate-y-0.5; }
+    <style>
+        .glass-header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
 
-            .category-tab:nth-child(1):hover:not(.active) { @apply text-rose-600 border-rose-300 bg-rose-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(2):hover:not(.active) { @apply text-blue-600 border-blue-300 bg-blue-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(3):hover:not(.active) { @apply text-emerald-600 border-emerald-300 bg-emerald-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(4):hover:not(.active) { @apply text-amber-600 border-amber-300 bg-amber-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(5):hover:not(.active) { @apply text-purple-600 border-purple-300 bg-purple-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(6):hover:not(.active) { @apply text-cyan-600 border-cyan-300 bg-cyan-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(7):hover:not(.active) { @apply text-pink-600 border-pink-300 bg-pink-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(8):hover:not(.active) { @apply text-indigo-600 border-indigo-300 bg-indigo-50 hover:-translate-y-0.5; }
-            .category-tab:nth-child(9):hover:not(.active) { @apply text-fuchsia-600 border-fuchsia-300 bg-fuchsia-50 hover:-translate-y-0.5; }
-            /* Modal Styles */
-            .modal-active {
-                @apply overflow-hidden;
-            }
-            .modal-overlay {
-                @apply fixed inset-0 bg-[#0f172a]/70 backdrop-blur-sm z-[100] transition-opacity duration-300 ease-out opacity-0 pointer-events-none;
-            }
-            .modal-overlay.active {
-                @apply opacity-100 pointer-events-auto;
-            }
+        .nav-link {
+            font-weight: 500;
+            color: #4b5563;
+            transition: color 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            font-size: 0.875rem;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #7c3aed;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: #8b5cf6;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background-image: linear-gradient(to right, #7c3aed, #a855f7, #ec4899);
+            background-size: 200% auto;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+            transition: all 0.5s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.6);
+            transform: translateY(-0.25rem);
+            background-position: right center;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: #7c3aed;
+            border: 1px solid #ede9fe;
+            font-weight: 600;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f3ff;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-0.25rem);
+        }
+
+        .category-tab {
+            padding: 0.625rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+            background: #fff;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+        }
+
+        .category-tab:nth-child(1).active { background-image: linear-gradient(to right, #f43f5e, #ec4899); color: #fff; box-shadow: 0 4px 15px rgba(244,63,94,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(2).active { background-image: linear-gradient(to right, #3b82f6, #06b6d4); color: #fff; box-shadow: 0 4px 15px rgba(59,130,246,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(3).active { background-image: linear-gradient(to right, #10b981, #14b8a6); color: #fff; box-shadow: 0 4px 15px rgba(16,185,129,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(4).active { background-image: linear-gradient(to right, #f59e0b, #f97316); color: #fff; box-shadow: 0 4px 15px rgba(245,158,11,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(5).active { background-image: linear-gradient(to right, #a855f7, #d946ef); color: #fff; box-shadow: 0 4px 15px rgba(168,85,247,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(6).active { background-image: linear-gradient(to right, #06b6d4, #3b82f6); color: #fff; box-shadow: 0 4px 15px rgba(6,182,212,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(7).active { background-image: linear-gradient(to right, #ec4899, #f43f5e); color: #fff; box-shadow: 0 4px 15px rgba(236,72,153,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(8).active { background-image: linear-gradient(to right, #6366f1, #8b5cf6); color: #fff; box-shadow: 0 4px 15px rgba(99,102,241,0.4); border-color: transparent; transform: translateY(-2px); }
+        .category-tab:nth-child(9).active { background-image: linear-gradient(to right, #d946ef, #a855f7); color: #fff; box-shadow: 0 4px 15px rgba(217,70,239,0.4); border-color: transparent; transform: translateY(-2px); }
+
+        .category-tab:nth-child(1):hover:not(.active) { color: #e11d48; border-color: #fda4af; background: #fff1f2; transform: translateY(-2px); }
+        .category-tab:nth-child(2):hover:not(.active) { color: #2563eb; border-color: #93c5fd; background: #eff6ff; transform: translateY(-2px); }
+        .category-tab:nth-child(3):hover:not(.active) { color: #059669; border-color: #6ee7b7; background: #ecfdf5; transform: translateY(-2px); }
+        .category-tab:nth-child(4):hover:not(.active) { color: #d97706; border-color: #fcd34d; background: #fffbeb; transform: translateY(-2px); }
+        .category-tab:nth-child(5):hover:not(.active) { color: #9333ea; border-color: #d8b4fe; background: #faf5ff; transform: translateY(-2px); }
+        .category-tab:nth-child(6):hover:not(.active) { color: #0891b2; border-color: #67e8f9; background: #ecfeff; transform: translateY(-2px); }
+        .category-tab:nth-child(7):hover:not(.active) { color: #db2777; border-color: #f9a8d4; background: #fdf2f8; transform: translateY(-2px); }
+        .category-tab:nth-child(8):hover:not(.active) { color: #4f46e5; border-color: #a5b4fc; background: #eef2ff; transform: translateY(-2px); }
+        .category-tab:nth-child(9):hover:not(.active) { color: #c026d3; border-color: #f0abfc; background: #fdf4ff; transform: translateY(-2px); }
+
+        .modal-active {
+            overflow: hidden;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            transition: opacity 0.3s ease-out;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 95%;
+            max-width: 56rem;
+            max-height: 90vh;
+            background: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.3);
+            z-index: 101;
+            transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            pointer-events: none;
+            overflow: hidden;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .modal-content.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        @media (min-width: 640px) {
             .modal-content {
-                @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[90%] max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] z-[101] transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 scale-[0.8] pointer-events-none overflow-hidden;
-            }
-            .modal-content.active {
-                @apply opacity-100 scale-100 pointer-events-auto;
+                width: 90%;
             }
         }
     </style>
@@ -481,7 +591,7 @@
                         <p class="text-gray-600 mb-8 flex-grow">Provide us with your detailed information, educational
                             background, and work experience by filling out our official Google Form. This helps us find
                             the perfect match for you.</p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0BEvdhEUKHN7IMwdYdW-3sCNMVnJCXcGT18EWCa788E7cqA/viewform"
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfKxC7Q4ZtKyjXttUcqtj_UUdmsnw4p4MUKCOfE8K-K4mMgeA/viewform?usp=header"
                             target="_blank"
                             class="w-full flex items-center justify-center gap-2 px-6 py-4 bg-primary-600 text-white font-bold text-lg rounded-xl hover:bg-primary-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                             <i class="ph-fill ph-arrow-up-right text-2xl"></i> Open Application Form
@@ -513,7 +623,7 @@
                     <p class="text-gray-600 mb-8 text-lg">Click the button below to fill out your company's manpower
                         requirements. Our team will review your needs and get back to you with the best available
                         candidates quickly.</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1N861PtkDp5AGbmms6JbagrgeKDnJRZ7OvDXrXyl7uagVxw/viewform"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSevEPKTI7r_m-E-stszQIRXM9rjaR-ycE6ImBheTHV0Y-nUsQ/viewform?usp=header"
                         target="_blank"
                         class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-600 to-purple-600 text-white font-bold text-xl rounded-xl hover:shadow-[0_8px_30px_rgba(124,58,237,0.4)] hover:-translate-y-1 transition-all duration-300">
                         <i class="ph-fill ph-clipboard-text text-3xl"></i> Fill Manpower Request
@@ -541,11 +651,11 @@
                             <i class="ph ph-certificate text-2xl group-hover:rotate-12 transition-transform"></i>
                             Verify Our Registration
                         </button>
-                        <button onclick="openBannerModal()"
+                        <a href="img/SRI%20UDHAYAM%20JOBS.pdf" target="_blank" rel="noopener noreferrer"
                             class="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white hover:bg-primary-700 font-bold rounded-2xl shadow-[0_8px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300 group">
-                            <i class="ph ph-presentation text-2xl group-hover:rotate-12 transition-transform"></i>
-                            View Company Banner
-                        </button>
+                            <i class="ph ph-file-pdf text-2xl group-hover:rotate-12 transition-transform"></i>
+                            View Company ISO
+                        </a>
                         <a href="img/gst_certificate.pdf" target="_blank" rel="noopener noreferrer"
                             class="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white hover:bg-primary-700 font-bold rounded-2xl shadow-[0_8px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_12px_40px_rgba(37,99,235,0.5)] hover:-translate-y-1 transition-all duration-300 group">
                             <i class="ph ph-file-pdf text-2xl group-hover:rotate-12 transition-transform"></i>
@@ -1103,13 +1213,31 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/917092733430?text=Hi%20Sri%20Udhayam%20Jobs%2C%20I%20am%20looking%20for%20a%20job."
-        target="_blank"
+    <!-- Floating WhatsApp Menu -->
+    <div id="whatsappMenu" class="fixed bottom-8 right-24 z-50 hidden flex flex-col items-start gap-2">
+        <a href="https://wa.me/917092733430?text=Hi%20Sri%20Udhayam%20Jobs%2C%20I%20am%20a%20job%20seeker%20and%20looking%20for%20a%20job."
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-3 py-2 rounded-full bg-white text-slate-800 font-semibold text-sm border border-slate-200 shadow-[0_6px_16px_rgba(15,23,42,0.2)] hover:bg-sky-50 hover:border-sky-200 transition-all duration-300 min-w-[170px] justify-start">
+            <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-base">
+                <i class="ph-fill ph-user-circle"></i>
+            </span>
+            <span>Job Seeker</span>
+        </a>
+        <a href="https://wa.me/917339153430?text=Hi%20Sri%20Udhayam%20Jobs%2C%20I%20am%20hiring%20staff%20for%20my%20company.%20Please%20contact%20me."
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-3 py-2 rounded-full bg-white text-slate-800 font-semibold text-sm border border-slate-200 shadow-[0_6px_16px_rgba(15,23,42,0.2)] hover:bg-amber-50 hover:border-amber-200 transition-all duration-300 min-w-[170px] justify-start">
+            <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-base">
+                <i class="ph-fill ph-briefcase"></i>
+            </span>
+            <span>Hiring</span>
+        </a>
+    </div>
+
+    <button id="whatsappFab" type="button"
         class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_8px_30px_rgb(37,211,102,0.4)] flex items-center justify-center text-3xl hover:-translate-y-2 hover:shadow-[0_12px_40px_rgb(37,211,102,0.6)] transition-all duration-300 z-50 animate-bounce"
-        aria-label="Chat on WhatsApp">
+        aria-label="Open WhatsApp options">
         <i class="ph-fill ph-whatsapp-logo"></i>
-    </a>
+    </button>
 
     <!-- Custom Local Translate Logic -->
     <script type="text/javascript">
@@ -1440,6 +1568,31 @@
                     mobileMenu.classList.add('hidden');
                 });
             });
+
+            // Floating WhatsApp option menu
+            const whatsappFab = document.getElementById('whatsappFab');
+            const whatsappMenu = document.getElementById('whatsappMenu');
+
+            if (whatsappFab && whatsappMenu) {
+                whatsappFab.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    whatsappMenu.classList.toggle('hidden');
+                    if (whatsappMenu.classList.contains('hidden')) {
+                        whatsappFab.classList.add('animate-bounce');
+                    } else {
+                        whatsappFab.classList.remove('animate-bounce');
+                    }
+                });
+
+                whatsappMenu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+
+                document.addEventListener('click', () => {
+                    whatsappMenu.classList.add('hidden');
+                    whatsappFab.classList.add('animate-bounce');
+                });
+            }
         }
 
         // Initialize when DOM is ready
@@ -1477,24 +1630,10 @@
             document.getElementById('certModal').classList.remove('active');
         }
 
-        // Banner Modal Functions
-        function openBannerModal() {
-            document.body.classList.add('modal-active');
-            document.getElementById('bannerOverlay').classList.add('active');
-            document.getElementById('bannerModal').classList.add('active');
-        }
-
-        function closeBannerModal() {
-            document.body.classList.remove('modal-active');
-            document.getElementById('bannerOverlay').classList.remove('active');
-            document.getElementById('bannerModal').classList.remove('active');
-        }
-
         // Close on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeCertificateModal();
-                closeBannerModal();
             }
         });
     </script>
@@ -1539,46 +1678,6 @@
         </div>
     </div>
 
-    <!-- Banner Modal Structure -->
-    <div id="bannerOverlay" class="modal-overlay" onclick="closeBannerModal()"></div>
-    <div id="bannerModal" class="modal-content !max-w-7xl !h-[90vh]">
-        <div class="relative bg-white h-full overflow-hidden flex flex-col rounded-3xl shadow-2xl">
-            <!-- Modal Header -->
-            <div class="flex items-center justify-between px-8 py-6 border-b border-gray-100 shrink-0">
-                <div class="flex items-center gap-4">
-                    <div
-                        class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center shadow-sm">
-                        <i class="ph-fill ph-presentation text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-heading font-bold text-xl text-gray-900">Company Banner</h3>
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Our Professional Journey
-                        </p>
-                    </div>
-                </div>
-                <button onclick="closeBannerModal()"
-                    class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-900 transition-colors">
-                    <i class="ph ph-x text-2xl"></i>
-                </button>
-            </div>
-
-            <!-- Modal Body (Optimized for Scrolling View) -->
-            <div class="flex-grow overflow-y-auto p-4 sm:p-12 bg-gray-50/20 flex flex-col items-center">
-                <div class="w-full bg-white shadow-2xl rounded-2xl p-1 border border-gray-100 mb-8">
-                    <img src="img/licence.jpeg" alt="Company Banner" class="w-full h-auto block rounded-2xl">
-                </div>
-                <p class="text-xs text-gray-400 italic mb-4">Scroll to see our professional milestones</p>
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="px-8 py-6 border-t border-gray-100 flex justify-end items-center bg-white shrink-0">
-                <button onclick="closeBannerModal()"
-                    class="px-8 py-3 bg-gray-900 hover:bg-black text-white font-bold rounded-2xl transition-all shadow-md active:scale-95 text-sm">
-                    Close Viewer
-                </button>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
