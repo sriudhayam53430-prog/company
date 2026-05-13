@@ -1,23 +1,30 @@
 async function sendTelegramMessage(message) {
     const botToken = "8181871966:AAEJug9LL9gxXE2j2XzA0IFO7xTc7qDUrl8";
-    const chatId = "2118454729";
+    // Add your friend's chat ID to this list, or create a Telegram group, add the bot to it, and put the group's chat ID here.
+    const chatIds = ["2118454729", "8339969233"]; 
 
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            chat_id: chatId,
-            text: message
-        })
+    const promises = chatIds.map(async (chatId) => {
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            });
+            const data = await response.json();
+            console.log(`Telegram response for ${chatId}:`, data);
+            return data;
+        } catch (error) {
+            console.error(`Failed to send to ${chatId}:`, error);
+        }
     });
 
-    const data = await response.json();
-    console.log("Telegram response:", data);
-    return data;
+    return await Promise.all(promises);
 }
 
 function buildSeekerMessage(values) {
